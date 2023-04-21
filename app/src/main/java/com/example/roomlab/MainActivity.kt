@@ -3,6 +3,7 @@ package com.example.roomlab
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this@MainActivity, NewWordActivity::class.java)
             startActivityForResult(intent, newWordActivityRequestCode)
         }
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, intentData: Intent?) {
@@ -58,5 +60,24 @@ class MainActivity : AppCompatActivity() {
                 Toast.LENGTH_LONG
             ).show()
         }
+    }
+
+    fun listAllPwords(view: View) {
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
+        val adapter = WordListAdapter()
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        wordViewModel.pWord.observe(owner = this) {
+                words -> words.let { adapter.submitList(it) }
+        }
+    }
+
+    fun updateWord(view: View) {
+        wordViewModel.updateLapis()
+    }
+
+    fun deleteWord(view: View) {
+        wordViewModel.deleteLapis()
     }
 }
