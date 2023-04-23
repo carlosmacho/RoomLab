@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -39,8 +40,17 @@ class MainActivity : AppCompatActivity() {
 
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener {
+            // Remove observer for allWords and observe pWord
+            wordViewModel.pWord.removeObservers(this)
             val intent = Intent(this@MainActivity, NewWordActivity::class.java)
             startActivityForResult(intent, newWordActivityRequestCode)
+        }
+
+        val fab2 = findViewById<FloatingActionButton>(R.id.listP)
+        fab2.setOnClickListener {
+            wordViewModel.pWord.observe(owner = this) {
+                    words -> words.let { adapter.submitList(it) }
+            }
         }
 
     }
@@ -64,16 +74,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun listAllPwords(view: View) {
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
-        val adapter = WordListAdapter()
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
-        wordViewModel.pWord.observe(owner = this) {
-                words -> words.let { adapter.submitList(it) }
-        }
-    }
 
     fun updateWord(view: View) {
         wordViewModel.updateLapis()

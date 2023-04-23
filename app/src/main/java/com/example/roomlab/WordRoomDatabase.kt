@@ -27,8 +27,10 @@ public abstract class WordRoomDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     WordRoomDatabase::class.java,
-                    "word_database")
+                    "word_database"
+                )
                     .fallbackToDestructiveMigration()
+                    .addCallback(WordDatabaseCallback(scope))
                     .build()
                 INSTANCE = instance
                 // return instance

@@ -14,7 +14,7 @@ interface WordDao {
     @Query("SELECT * FROM word_table ORDER BY word ASC")
     fun getAlphabetizedWords(): Flow<List<Word>>
 
-    @Query("SELECT * FROM word_table WHERE word LIKE 'p%'")
+    @Query("SELECT * FROM word_table WHERE word LIKE 'p%' ORDER BY word ASC")
     fun getP(): Flow<List<Word>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
