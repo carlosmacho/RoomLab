@@ -22,9 +22,12 @@ class WordListAdapter : ListAdapter<Word, WordListAdapter.WordViewHolder>(WORDS_
 
     class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val wordItemView: TextView = itemView.findViewById(R.id.textView)
+        private val catItemView: TextView = itemView.findViewById(R.id.textView2)
 
         fun bind(text: String?, category: String) {
-            wordItemView.text = text.plus("-".plus(category))
+            //wordItemView.text = text.plus("-".plus(category))
+            wordItemView.text = text
+            catItemView.text = category
         }
 
         companion object {

@@ -2,6 +2,7 @@ package com.example.roomlab
 
 import androidx.lifecycle.*
 import kotlinx.coroutines.launch
+import java.util.Locale.Category
 
 class WordViewModel(private val repository: WordRepository) : ViewModel() {
 
