@@ -18,4 +18,18 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:background="@android:color/holo_orange_light" />
+    <TextView
+        android:id="@+id/textView3"
+        style="@style/word_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@android:color/holo_orange_light" />
+    <TextView
+        android:id="@+id/textView4"
+        style="@style/word_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@android:color/holo_orange_light" />
 </LinearLayout>

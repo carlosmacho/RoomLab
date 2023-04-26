@@ -12,12 +12,17 @@ class NewWordActivity : AppCompatActivity() {
 
     private lateinit var editWordView: EditText
     private lateinit var editCatView: EditText
+    private lateinit var editIdioma: EditText
+    private lateinit var editOcorrencias: EditText
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_word)
         editWordView = findViewById(R.id.edit_word)
         editCatView = findViewById(R.id.edit_category)
+        editIdioma = findViewById(R.id.edit_idioma)
+        editOcorrencias = findViewById(R.id.edit_ocorrencias)
+
 
         val button = findViewById<Button>(R.id.button_save)
         button.setOnClickListener {
@@ -27,8 +32,12 @@ class NewWordActivity : AppCompatActivity() {
             } else {
                 val word = editWordView.text.toString()
                 val cat = editCatView.text.toString()
+                val idioma = editIdioma.text.toString()
+                val ocorrencias = editOcorrencias.text.toString()
                 replyIntent.putExtra(EXTRA_REPLY_WORD, word)
                 replyIntent.putExtra(EXTRA_REPLY_CAT, cat)
+                replyIntent.putExtra(EXTRA_REPLY_IDIOMA, idioma)
+                replyIntent.putExtra(EXTRA_REPLY_OCORRENCIAS, ocorrencias)
                 setResult(Activity.RESULT_OK, replyIntent)
             }
             finish()
@@ -38,5 +47,7 @@ class NewWordActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_REPLY_WORD = "com.example.android.wordlistsql.REPLY"
         const val EXTRA_REPLY_CAT = ""
+        const val EXTRA_REPLY_IDIOMA = ""
+        const val EXTRA_REPLY_OCORRENCIAS = ""
     }
 }

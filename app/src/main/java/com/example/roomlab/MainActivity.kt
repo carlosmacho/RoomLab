@@ -61,8 +61,15 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == newWordActivityRequestCode && resultCode == Activity.RESULT_OK) {
             intentData?.getStringExtra(NewWordActivity.EXTRA_REPLY_WORD)?.let { replyWord ->
                 intentData?.getStringExtra(NewWordActivity.EXTRA_REPLY_CAT)?.let { replyCat ->
-                    val word = Word(replyWord, replyCat)
-                    wordViewModel.insert(word)
+                    intentData?.getStringExtra(NewWordActivity.EXTRA_REPLY_IDIOMA)
+                        ?.let { replyIdioma ->
+                            intentData?.getStringExtra(NewWordActivity.EXTRA_REPLY_OCORRENCIAS)
+                                ?.let { replyOcorrencias ->
+                                    val word =
+                                        Word(replyWord, replyCat, replyIdioma, replyOcorrencias)
+                                    wordViewModel.insert(word)
+                                }
+                        }
                 }
             }
         } else {
