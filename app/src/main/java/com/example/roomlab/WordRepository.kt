@@ -22,6 +22,7 @@ class WordRepository(private val wordDao: WordDao) {
         wordDao.insert(word)
     }
 
-    suspend fun updateLapis() = wordDao.updateLapis();
+//    suspend fun updateLapis() = wordDao.updateLapis();
+    suspend fun updateIdioma() = wordDao.updateIdioma();
     suspend fun deleteLapis() = wordDao.deleteLapis();
 }

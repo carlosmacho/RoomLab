@@ -82,8 +82,12 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+//    fun updateWord(view: View) {
+//        wordViewModel.updateLapis()
+//    }
+
     fun updateWord(view: View) {
-        wordViewModel.updateLapis()
+        wordViewModel.updateIdioma()
     }
 
     fun deleteWord(view: View) {

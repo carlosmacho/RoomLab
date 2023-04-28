@@ -26,7 +26,11 @@ interface WordDao {
     @Query("delete from word_table where word = 'lapis'")
     suspend fun deleteLapis()
 
-    @Query("update word_table set category='category updated' where word = 'lapis'")
-    suspend fun updateLapis()
+
+//    @Query("update word_table set category='category updated' where word = 'lapis'")
+//    suspend fun updateLapis()
+
+    @Query("update word_table set idioma='PT' ")
+    suspend fun updateIdioma()
 
 }

@@ -20,9 +20,14 @@ class WordViewModel(private val repository: WordRepository) : ViewModel() {
         repository.insert(word)
     }
 
-    fun updateLapis() = viewModelScope.launch {
-        repository.updateLapis()
+//    fun updateLapis() = viewModelScope.launch {
+//        repository.updateLapis()
+//    }
+
+    fun updateIdioma() = viewModelScope.launch {
+        repository.updateIdioma()
     }
+
     fun deleteLapis() = viewModelScope.launch {
         repository.deleteLapis()
     }

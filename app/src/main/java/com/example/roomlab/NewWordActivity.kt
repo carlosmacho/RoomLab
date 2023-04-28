@@ -46,8 +46,8 @@ class NewWordActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_REPLY_WORD = "com.example.android.wordlistsql.REPLY"
-        const val EXTRA_REPLY_CAT = ""
-        const val EXTRA_REPLY_IDIOMA = ""
-        const val EXTRA_REPLY_OCORRENCIAS = ""
+        const val EXTRA_REPLY_CAT = "a"
+        const val EXTRA_REPLY_IDIOMA = "b"
+        const val EXTRA_REPLY_OCORRENCIAS = "c"
     }
 }
